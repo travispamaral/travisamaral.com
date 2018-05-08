@@ -1,7 +1,7 @@
 import React from "react"
 
 let globalStyles = require(`!raw-loader!../assets/scss/globals.scss`)
-let stylesSt
+let stylesStr
 if (process.env.NODE_ENV === `production`) {
   try {
     stylesStr = require(`!raw-loader!../public/styles.css`)

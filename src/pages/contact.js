@@ -18,7 +18,7 @@ const styles = {
 class Contact extends Component {
   render() {
     return (
-      <div class="contact-page">
+      <div className="contact-page">
         <Header />  
         <div className="content">
           <h1>Contact</h1>

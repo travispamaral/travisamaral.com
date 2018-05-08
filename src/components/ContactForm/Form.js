@@ -63,7 +63,7 @@ class Form extends Component {
           onSubmit={this.handleSubmit}>
           <input name="bot-field" hidden />
           <div className="row">
-            <label for="name">Full Name</label>
+            <label htmlFor="name">Full Name</label>
             <input
               type="text"
               name="name"
@@ -72,7 +72,7 @@ class Form extends Component {
               required />
 		      </div>
           <div className="row">
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               name="email"
@@ -81,7 +81,7 @@ class Form extends Component {
               required />
           </div>
           <div className="row">
-            <label for="message" className="align-top">Message</label>
+            <label htmlFor="message" className="align-top">Message</label>
             <textarea
               type="text"
               name="message"
@@ -94,10 +94,10 @@ class Form extends Component {
           </div>
 
           {this.state.validationMessage &&
-            <span className={"message " + this.state.validationClass}
-            >{this.state.validationMessage}</span>
+            <p style="text-align: center" className={"message " + this.state.validationClass}
+            >{this.state.validationMessage}</p>
           }
-          
+
 	      </form>
       </div>
     )
