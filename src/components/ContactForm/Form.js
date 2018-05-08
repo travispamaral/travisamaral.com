@@ -5,7 +5,7 @@ import './Form.scss'
 class Form extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       validationMessage: '',
       validationClass: ''
@@ -25,9 +25,9 @@ class Form extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    let state = this.state
+    // let state = this.state
 
-    delete (state.validationMessage)
+    // delete (state.validationMessage)
 
     fetch("/", {
       method: "POST",
@@ -60,7 +60,11 @@ class Form extends Component {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}>
-          <input name="bot-field" hidden />
+          <p hidden>
+            <label>
+              Don’t fill this out: <input name="bot-field" onChange={this.handleChange} />
+            </label>
+          </p>
           <div className="row">
             <label>Full Name</label>
             <input
