@@ -56,14 +56,13 @@ class Form extends Component {
       <div className="contact-card">
         <form
           name="contact-form"
-          method="post"
-          action="/thanks/"
+          method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}>
           <input name="bot-field" hidden />
           <div className="row">
-            <label htmlFor="name">Full Name</label>
+            <label>Full Name</label>
             <input
               type="text"
               name="name"
@@ -72,7 +71,7 @@ class Form extends Component {
               required />
 		      </div>
           <div className="row">
-            <label htmlFor="email">Email</label>
+            <label>Email</label>
             <input
               type="email"
               name="email"
@@ -81,7 +80,7 @@ class Form extends Component {
               required />
           </div>
           <div className="row">
-            <label htmlFor="message" className="align-top">Message</label>
+            <label className="align-top">Message</label>
             <textarea
               type="text"
               name="message"
