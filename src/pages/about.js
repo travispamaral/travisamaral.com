@@ -3,27 +3,22 @@ import Link from 'gatsby-link'
 
 import RightSlice from '../components/Slice/RightSlice' 
 import Header from '../components/Header/Header'
-import Footer from '../components/Footer/Footer'
 
-class About extends React.Component {
+export default ({ data }) => {
 
-  render() {
-    return (
-      <div className="about-page">
-        <Header />  
-        <div className="content">
-          <h1>About Me</h1>
-          <h2>I am a web developer focused on UI in the SF bay area.</h2>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+  return (
+    <div className="about-page">
+      <Header />  
+      <div className="content">
+        <h1>About Me</h1>
+        <h2>A front end dev focusing on UI/UX in the SF bay area.</h2>
+        <p>I have have built or worked on sites ranging from applications to high end fashion e-commerce to consumer packaged goods brands. I spent almost 5 years as dev lead at a Zooka Creative, a digital agency in San Jose. My work here consisted of managing large consumer facing websites, managing a team of front and back end engineers, maintaining and implementing best practices and staying up to date with the most recent trends.</p>
 
-          <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            
-        </div> 
-        <RightSlice />
-        <Footer/>
-      </div>
-    )
-  }
+        <p>I am also a co-founder &amp; UI/UX Engineer at <a href="http://weareanchor.co">Anchor Studios</a>. A small collaborative design firm also based in the Bay Area. We conceptualize and develop state of the art marketing sites, produce 2D, 3D &amp; live action videos, as well as do custom photography.</p>
+
+        <p>Feel free to check out my <a href="https://drive.google.com/file/d/0B9pg74rTKuUBbDFiVmJ4djBmeHc/view">resume</a>, <a href="https://www.linkedin.com/in/travis-amaral-42383222/">LinkedIn</a>, or some <Link to="/work">projects</Link> I've worked on.</p>
+      </div> 
+      <RightSlice />
+    </div>
+  )
 }
-
-export default About

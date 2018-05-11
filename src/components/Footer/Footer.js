@@ -3,7 +3,7 @@ import React from 'react'
 const date = new Date()
 
 const styles = {
-  position: 'relative',
+  position: 'fixed',
   bottom: '1rem',
   left: '0',
   right: '0',
