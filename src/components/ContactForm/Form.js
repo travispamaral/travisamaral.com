@@ -89,7 +89,7 @@ class Form extends Component {
               required></textarea>
           </div>
           <div className="submit-row">
-            <button type="submit">SEND</button>
+            <button>SEND</button>
           </div>
 
           {this.state.validationMessage &&
