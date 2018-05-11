@@ -56,3 +56,20 @@ textarea {
 textarea {
   min-height: 140px;
 }
+
+@media screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+  button {
+    margin-right: -.75rem;
+  }
+  label {
+    align-self: flex-start;
+    margin: 0 0 1rem -.75rem;
+  }
+  input,
+  textarea {
+    width: 100%;
+  }
+}
