@@ -4,6 +4,8 @@ import IconGithub from '-!svg-react-loader?name=Icon!../../../assets/social/gith
 import IconLinkedIn from '-!svg-react-loader?name=Icon!../../../assets/social/linkedin.svg'
 import IconCodepen from '-!svg-react-loader?name=Icon!../../../assets/social/codepen.svg'
 
+import './SocialIcons.scss'
+
 import config from '../../../gatsby-config.js'
 
 class SocialIcons extends React.Component {
