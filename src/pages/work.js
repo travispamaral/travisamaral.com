@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import ProjectCard from '../components/ProjectCard/ProjectCard'
 import Header from '../components/Header/Header'
 import RightSlice from '../components/Slice/RightSlice'
-import Footer from '../components/Footer/Footer'
 
 export default ({ data }) => {
 
@@ -14,14 +13,14 @@ export default ({ data }) => {
       <Header />  
 
       <h1>Projects</h1>
-      <p>some text or something</p>
+      <p>Checkout some of my most recent work. Note that not all projects are listed here.</p>
       <div
         className="projects-wrapper"  
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat( auto-fit, minmax( 300px, auto ) )',
-          gridGap: '15px',
-          marginTop: '5rem'
+          gridGap: '16px',
+          marginTop: '2rem'
         }}
       >
         {projects.map((project, i) =>
@@ -34,7 +33,6 @@ export default ({ data }) => {
           />
         )}
       </div>
-      <Footer />
       <RightSlice />
     </div>
   )

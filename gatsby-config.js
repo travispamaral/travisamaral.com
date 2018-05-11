@@ -33,24 +33,34 @@ module.exports = {
     },
     projects: [
       {
-        title: 'proj 1',
-        url: 'project.com',
-        description: 'Some description'
+        title: 'KongHQ',
+        url: 'https://konghq.com',
+        description: 'Custom built Wordpress site built in less than 3 months'
       },
       {
-        title: 'proj 2',
-        url: 'project2.com',
-        description: 'Some description'
+        title: 'Zooka Creative',
+        url: 'http://zooka.agency',
+        description: 'Marketing & Case studies for marketing agency'
       },
       {
-        title: 'proj 3',
-        url: 'project3.com',
-        description: 'Some description'
+        title: 'Oojay',
+        url: 'http://drinkoojay.com',
+        description: 'A small landing page for Oojay Orange Juice'
       },
       {
-        title: 'proj 4',
-        url: 'project4.com',
-        description: 'Some description'
+        title: 'One Hour Innovator',
+        url: 'http://onehourinnovator.com',
+        description: 'Marketing site for One Hour Innovator app'
+      },
+      {
+        title: 'Renuzit',
+        url: 'https://www.renuzit.com',
+        description: 'Custom Concrete 5 CMS site'
+      },
+      {
+        title: 'Purex',
+        url: 'https://www.purex.com',
+        description: 'Custom Wordpress CMS site'
       },
     ]
   },
