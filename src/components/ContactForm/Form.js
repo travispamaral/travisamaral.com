@@ -8,7 +8,7 @@ export default ({ data }) => {
       <form
         name="contact-form"
         method="post"
-        acttion="/thanks"
+        action="/thanks"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
       >
