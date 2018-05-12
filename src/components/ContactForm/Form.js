@@ -60,7 +60,6 @@ class Form extends Component {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           >
-          <input type="hidden" name="bot-field" />
           <div className="row">
             <label>Full Name</label>
             <input
@@ -82,12 +81,12 @@ class Form extends Component {
           <div className="row">
             <label className="align-top">Message</label>
             <textarea
-              type="text"
               name="message"
               placeholder="What would you like to say?"
               // onChange={this.handleChange}
               required></textarea>
           </div>
+          <input type="hidden" name="bot-field" />
           <div className="submit-row">
             <button>SEND</button>
           </div>
