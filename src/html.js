@@ -1,5 +1,7 @@
 import React from "react"
 
+import favicon from '../assets/favicon.ico'
+
 let globalStyles = require(`!raw-loader!../assets/scss/globals.scss`)
 let stylesStr
 if (process.env.NODE_ENV === `production`) {
@@ -35,11 +37,12 @@ module.exports = class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
+          <link rel="shortcut icon" type="image/x-icon" href={favicon}/>
           {this.props.headComponents}
           {globalCss}
           {css}
         </head>
-        <body {...this.props.bodyAttributes}>  
+        <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
           <div
             key={`body`}
