@@ -1,6 +1,5 @@
 module.exports = {
   plugins: [
-    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
     {
@@ -32,6 +31,11 @@ module.exports = {
       github: "https://www.github.com/travispamaral"
     },
     projects: [
+      {
+        title: 'Kong Manager',
+        url: 'https://konghq.com/products/kong-manager/',
+        description: 'Vue application used to manage your Kong installation'
+      },
       {
         title: 'KongHQ',
         url: 'https://konghq.com',
