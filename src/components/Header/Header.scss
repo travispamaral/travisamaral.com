@@ -41,7 +41,7 @@ header {
       position: absolute;
       width: 100%;
       height: 2px;
-      background: #333;
+      background: #000;
       transform: rotate(0deg);
       transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
       &-top {
@@ -53,7 +53,6 @@ header {
     }
     &.open {
       .bar {
-        background: #fff;
         transition: all 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
         transition-delay: 0.2s;
         &-top {
@@ -76,24 +75,27 @@ header {
     &.open {
       position: fixed;
       display: flex !important;
-      top: 0;
-      bottom: 0;
+      top: 82px;
       left: 0;
       right: 0;
+      width: 100%;
+      height: auto;
+      max-height: 64rem;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      background: rgba(0,0,0,.7);
+      background: #fff;
+      box-shadow: 0 4px 2px -2px rgba(0,0,0,.1);
       a {
-        padding: 2rem 0;
-        margin: 2rem 0;
+        padding: 1.2rem 0;
+        margin: 0;
         width: 100%;
         text-align: center;
-        color: #fff;
+        color: #000;
         &:hover {
-          background: lighten(#5863EB, 10%);
+          color: lighten(#5863EB, 10%);
         }
-      }      
+      }
     }
   }
 }

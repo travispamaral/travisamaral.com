@@ -13,7 +13,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Gothic\+A1\:400,600,700, 900` // you can also specify font weights and styles
+          `Lato\:400,700` // you can also specify font weights and styles
         ]
       }
     }

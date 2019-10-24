@@ -15,7 +15,8 @@ const gridStyles = {
 
 const imageStyles = {
   boxShadow: '11px 8px 11px 0 rgba(0,0,0,.15)',
-  width: '100%'
+  width: '100%',
+  borderRadius: '12px'
 }
 
 export default () => {
@@ -32,8 +33,8 @@ export default () => {
             alt="Travis' sweet looking Jeep"
             style={imageStyles}/>
           <div>
-            <p>I am a drummer and have been playing for almost 20 years. I currently play in the Worship band at my <a href="https://venture.cc">Church</a>. I am also an avid Jeep owner. I love camping, and off roading and general outdoor exploration. If im not drumming or writing code I try to be outside!</p>
-            <p>Feel free to check out my <a href="https://drive.google.com/file/d/0B9pg74rTKuUBbDFiVmJ4djBmeHc/view">resume</a>, <a href="https://www.linkedin.com/in/travis-amaral-42383222/">LinkedIn</a>, or some <Link to="/work">projects</Link> I've worked on.</p>
+            <p>I am a drummer that has been playing for almost 20 years, I currently play in the band at my <a href="https://venture.cc">Church</a>. I am also an avid Jeep owner, I love camping, off roading and generally any outdoor exploration. If im not drumming or writing code I try to be outside!</p>
+            <p>Feel free to check out my <a href="https://drive.google.com/file/d/1hX4c1QcN17llOUUfGMFHqrz1UdzMu_7g/view?usp=sharing" target="_blank">resume</a>, <a href="https://www.linkedin.com/in/travis-amaral-42383222/" target="_blank">LinkedIn</a>, or some <Link to="/work">projects</Link> I've worked on.</p>
           </div>
         </div>
       </div>
