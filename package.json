@@ -1,22 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "description": "Gatsby hello world starter",
-  "license": "MIT",
+  "name": "travispamaral.com",
+  "description": "Website",
   "scripts": {
-    "develop": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve"
-  },
-  "dependencies": {
-    "gatsby": "^1.9.250",
-    "gatsby-link": "^1.6.40",
-    "gatsby-plugin-google-analytics": "^1.0.31",
-    "gatsby-plugin-google-fonts": "0.0.4",
-    "gatsby-plugin-sass": "^1.0.26",
-    "gatsby-plugin-styled-components": "^2.0.11",
-    "styled-components": "^3.2.6"
-  },
-  "devDependencies": {
-    "svg-react-loader": "^0.4.5"
+    "styles": "sass src/site.scss dist/site.css --watch"
   }
 }

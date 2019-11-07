@@ -1,0 +1,239 @@
+:root {
+  --background: #fff;
+  --accent: #5863EB;
+  --text: #707487;
+  --heading: #5e6272;
+  --maxWidth: 900px;
+}
+:root.dark-theme {
+  --background: #040F0F;
+  --text: #e0e0e0;
+  --heading: #c7c7c7;
+}
+
+$breakPoint: 900px;
+
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  background: var(--background);
+  overflow-x: hidden;
+  transition: background .2s ease;
+}
+
+h1 {
+  font-size: 42px;
+  line-height: 56px;
+  font-weight: 700;
+  color: var(--heading);
+}
+h2 {
+  font-size: 33px;
+  line-height: 43px;
+  font-weight: 400;
+}
+h3 {
+  font-size: 26px;
+  line-height: 43px;
+}
+h4 {
+  font-size: 20px;
+  line-height: 34px;
+  margin-bottom: 0;
+}
+p {
+  font-size: 1rem;
+  line-height: 28px;
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  color: var(--accent);
+  &:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent);
+    transition: width 200ms ease-out;
+    content: "";
+  }
+  &:hover:after { width: 100%; }
+}
+
+img { max-width: 100%; }
+
+svg {
+  path, polygon {
+    fill: var(--heading);
+  }
+}
+
+.container {
+  width: auto;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  @media only screen and (max-width: $breakPoint)  {
+    padding: 0 2rem;
+  }
+}
+
+img.rounded {
+  border-radius: 50%;
+  border: 5px solid var(--accent);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  &.grid-col-2 { grid-template-columns: 1fr 1fr; }
+  &.grid-col-3 { grid-template-columns: 1fr 1fr 1fr; }
+  &.gap-1 { grid-gap: 1rem; }
+  &.gap-2 { grid-gap: 2rem; }
+  @media only screen and (max-width: $breakPoint)  {
+    &.grid-col-2,
+    &.grid-col-3 {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+}
+
+section {
+  margin-top: 15vh;
+  margin-bottom: 4rem;
+  @media only screen and (max-width: $breakPoint)  {
+    margin-top: 5vh;
+  }
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  display: flex;
+	align-items: center;
+	justify-content: space-around;
+	input[type="checkbox"] {
+		height: 0;
+		width: 0;
+		visibility: hidden;
+		&:checked + label {
+      background: var(--accent);
+		}
+		&:checked + label:after {
+			left: calc(100% - 2px);
+      transform: translateX(-100%);
+      content: "🌙"
+		}
+	}
+	label {
+		position: relative;
+		display: block;
+		width: 40px;
+		height: 20px;
+		background: rgba(0, 0, 0, 0.10);
+		border-radius: 40px;
+		cursor: pointer;
+		&:after {
+      content: "☀️";
+			position: absolute;
+			top: 3px;
+			left: 2px;
+		  font-size: .75rem;
+			border-radius: 40px;
+			transition: 0.2s;
+		}
+	}
+}
+
+.social-icons {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  a {
+    margin: 0 1rem;
+    &:first-child { margin-left: 0; }
+    svg path { transition: all 300ms ease; }
+    &:hover {
+      svg {
+        path,
+        polygon { fill: var(--accent); }
+      }
+      &:after { width:0; }
+    }
+  }
+
+  @media screen and (max-width: var(--maxWidth)) {
+    position: relative;
+    width: 150px;
+  }
+}
+
+header {
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    @media only screen and (max-width: $breakPoint) {
+      flex-direction: column;
+      justify-content: center;
+      margin: 2rem 0 1rem;
+    }
+    nav {
+      display: flex;
+      a {
+        margin: 0 1rem;
+        font-size: 1rem;
+        color: var(--heading);
+        text-decoration: none;
+        &:hover {
+          color: var(--accent);
+        }
+      }
+    }
+  }
+}
+
+footer {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 4rem 0 1rem;
+  span {
+    margin-top: .75rem;
+  }
+}
+
+.intro .grid { align-items: center; }
+
+.experience {
+  h4 {
+    font-weight: 400;
+    color: var(--text);
+  }
+}
+.projects {
+  h4 {
+    font-weight: 400;
+    margin: 0;
+    span {
+      font-size: .9rem;
+    }
+  }
+  p {
+    margin: 0;
+  }
+}
