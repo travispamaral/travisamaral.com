@@ -12,10 +12,7 @@
   <link rel="stylesheet" href="dist/site.css">
 </head>
 <body>
-  <div class="theme-toggle">
-    <input type="checkbox" id="themeSwitcher" />
-    <label for="themeSwitcher"></label>
-  </div>
+  <button id="themeSwitcher"></button>
   <header>
     <div class="container">
       <div class="brand">
@@ -23,8 +20,7 @@
       </div>
       <nav class="links">
         <a href="https://www.linkedin.com/in/travis-amaral-42383222/">LinkedIn</a>
-        <a href="https://drive.google.com/file/d/1hX4c1QcN17llOUUfGMFHqrz1UdzMu_7g/view">Resume</a>
-        <a href="mailto:travispamaral@gmail.com">Contact</a>
+        <a href="https://drive.google.com/open?id=1K4dDemYwuoEL4izMzGcVe8jaGyw1RtCt">Resume</a>
       </nav>
     </div>
   </header>
@@ -34,12 +30,12 @@
         <div class="grid grid-col-2 gap-2">
           <div>
             <h1>Hi, I'm Travis!</h1>
-            <h2>I build product UI as a Software Engineer building at <a href="https://konghq.com">Kong</a></h2>
+            <h2>I build UI as a Software Engineer at <a href="https://konghq.com">Kong</a></h2>
             <p>
-              I am a front end developer focused on creating a great UI. I am Goal oriented & very dedicated to creating an enjoyable experience for the end user. I am a drummer and have been playing for 20 years, I am an avid Jeep owner, I love camping, off roading and generally any outdoor exploration.
+              I am a front end developer focused on creating great UI. I am goal oriented & very dedicated to creating an enjoyable experience for the end user. I am a drummer and have been playing for 20 years, I love camping, and generally any outdoor activity.
             </p>
           </div>
-          <div class="text-center">
+          <div class="intro-img">
             <img src="travis-coding.png" alt="Travis Amaral" class="rounded">
           </div>
         </div>
@@ -51,19 +47,21 @@
         <div class="experience">
           <div>
             <h4><a href="https://konghq.com">Kong</a> <span>//</span> Sr Software Engineer</h4>
-            <p>Build and maintain complex web application using for Kong Enterprise customers. Work with UX & design to create intuitive UI by testing and validating concepts. Create & maintained shared front end component library for use by multiple teams. Use modern technologies including Vue, Vuex, Jest, Storybook, Nightwatch, & Jenkns.</p>
+            <p>Build and maintain complex web applications for Kong Enterprise customers. Work with UX & design to create intuitive UI by testing and validating concepts. Create & maintain shared front end component library for use by multiple teams. Use modern technologies including Vue, Vuex, Jest, Cypress, Nightwatch, & Jenkns.</p>
           </div>
           <div>
             <h4><a href="https://zookacreative.com">Zooka Creative</a> <span>//</span> Lead Developer & Company Operations</h4>
-            <p>Oversee small development team & ensure all clients sites are delivered on time, within budget and at the highest quality. Work with dev team to build efficient projects,use modern coding techniques, & best practices. Provide constructive feedback to team to grow skill sets. Help run email marketing and email strategy by ensuring email creative is on brand, monitoring eCRM & contact database, creating email automations, A/B testing, and providing reports. Additionally improve the operational systems, processes and policies in support of the organization. Work to provide structure, documentation and improve processes company wide.</p>
+            <p>Oversee a small development team & ensure all client sites are delivered on time, within budget and at the highest quality. Work with team to build efficient projects, use modern coding techniques, & best practices. Provide constructive feedback to help grow skill sets.</p>
+            <p>Help run email marketing and email strategy by ensuring email creative is on brand, monitoring eCRM & contact database, creating email automation, A/B testing, and providing reports.</p>
+            <p>Additionally improve the operational systems, processes and policies in support of the organization. Work to provide structure, documentation and improve processes company wide.</p>
           </div>
           <div>
             <h4><a href="http://nawamedia.com">Nawa Media</a> <span>//</span> Web Developer</h4>
-            <p>Responsible for all web related work. Used knowledge of HTML/CSS, JS, Shopify Liquid, and other coding languages. Built, managed and maintained websites & ecommerce solutions.</p>
+            <p>Responsible for all web related work. Used knowledge of HTML/CSS, JS, Shopify Liquid, and other coding languages. Built, managed and maintained websites & e-commerce solutions.</p>
           </div>
           <div>
-            <h4><span class="job-title">Minutemnan Parking Co</span> <span>//</span> Account Manager</h4>
-            <p>Responsible for all web related work. Used knowledge of HTML/CSS, JS, Shopify Liquid, and other coding languages. Built, managed and maintained websites & ecommerce solutions.</p>
+            <h4><a href="http://travispamaral.com">Freelance</a> <span>//</span> Web Developer</h4>
+            <p>Help clients with various web projects and general web consulting. Help build brand websites including everything from styling Wordpress themes to full custom Wordpress installations.</p>
           </div>
         </div>
       </div>
@@ -100,6 +98,13 @@
               <span>// 2013</span>
             </h4>
             <p>Custom Wordpress site for Purex Laundry Detergent.</p>
+          </div>
+          <div>
+            <h4>
+              <a href="https://oberto.com/">Oberto.com</a>
+              <span>// 2014</span>
+            </h4>
+            <p>Custom Wordpress & social campaings for Oberto Beef Jerky.</p>
           </div>
         </div>
         <h2>Brands</h2>
@@ -156,14 +161,29 @@
         </a>
       </li>
     </ul>
-    <span>Made with ❤️ Travis Amaral &bull; 2019</span>
+    <span>Made with ❤️</span>
   </footer>
   <script>
     const htmlEl = document.querySelector('html')
     const themeSwitch = document.querySelector('#themeSwitcher')
+    const darkClass = 'dark-theme'
 
-    themeSwitch.addEventListener('change', () => {
-      htmlEl.classList.toggle('dark-theme')
+    // Set theme on load if one exists in storage
+    document.addEventListener("DOMContentLoaded", () => {
+      const storageTheme = localStorage.getItem('theme')
+      if (storageTheme === 'dark') {
+        htmlEl.classList.add(darkClass)
+      }
+    })
+
+    // Toggle theme & save in storage
+    themeSwitch.addEventListener('click', () => {
+      htmlEl.classList.toggle(darkClass)
+      if (htmlEl.classList.contains(darkClass)) {
+        localStorage.setItem('theme', 'dark')
+      } else {
+        localStorage.setItem('theme', 'light')
+      }
     })
   </script>
 </body>
