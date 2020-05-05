@@ -75,7 +75,7 @@ img {
   max-width: 100%;
 }
 
-svg path, svg polygon {
+svg path, polygon {
   fill: var(--heading);
 }
 
@@ -149,11 +149,11 @@ section {
   background-image: url(../moon.svg);
   background-size: 100%;
 }
-#themeSwitcher:focus {
-  outline: none;
-}
 html.dark-theme #themeSwitcher {
   background-image: url(../sun.svg);
+}
+#themeSwitcher:focus {
+  outline: none;
 }
 
 .social-icons {
@@ -185,27 +185,35 @@ html.dark-theme #themeSwitcher {
   }
 }
 
-header div {
+header {
+  max-width: var(--maxWidth);
+  width: auto;
+  margin: 0 auto;
+}
+header > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 4rem;
 }
 @media only screen and (max-width: 900px) {
-  header div {
+  header > div {
     flex-direction: column;
     justify-content: center;
-    margin: 2rem;
+    margin-top: 1rem;
   }
 }
-header div nav {
+header > div nav {
   display: flex;
+  margin-top: 1rem;
 }
-header div nav a {
+header > div nav a {
   margin: 0 1rem;
   font-size: 1rem;
-  color: var(--heading);
-  text-decoration: none;
+  color: var(--accent);
+}
+header > div nav a:after {
+  display: none;
 }
 
 footer {
