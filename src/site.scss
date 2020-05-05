@@ -68,11 +68,7 @@ a {
 
 img { max-width: 100%; }
 
-svg {
-  path, polygon {
-    fill: var(--heading);
-  }
-}
+svg path, polygon { fill: var(--heading); }
 
 .container {
   width: auto;
@@ -124,10 +120,10 @@ section {
   background-color: transparent;
   background-image: url(../moon.svg);
   background-size: 100%;
-  &:focus { outline: none; }
   html.dark-theme & {
     background-image: url(../sun.svg);
   }
+  &:focus { outline: none; }
 }
 
 .social-icons {
@@ -155,7 +151,10 @@ section {
 }
 
 header {
-  div {
+  max-width: var(--maxWidth);
+  width: auto;
+  margin: 0 auto;
+  > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -163,15 +162,16 @@ header {
     @media only screen and (max-width: $breakPoint) {
       flex-direction: column;
       justify-content: center;
-      margin: 2rem;
+      margin-top: 1rem;
     }
     nav {
       display: flex;
+      margin-top: 1rem;
       a {
         margin: 0 1rem;
         font-size: 1rem;
-        color: var(--heading);
-        text-decoration: none;
+        color: var(--accent);
+        &:after { display: none; }
       }
     }
   }
@@ -184,9 +184,7 @@ footer {
   justify-content: center;
   flex-direction: column;
   margin: 4rem 0 1rem;
-  span {
-    margin-top: .75rem;
-  }
+  span { margin-top: .75rem; }
 }
 
 .intro {
@@ -205,15 +203,12 @@ footer {
     color: var(--text);
   }
 }
+
 .projects {
   h4 {
     font-weight: 400;
     margin: 0;
-    span {
-      font-size: .9rem;
-    }
+    span { font-size: .9rem; }
   }
-  p {
-    margin: 0;
-  }
+  p { margin: 0; }
 }
