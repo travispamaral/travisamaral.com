@@ -150,15 +150,20 @@ section {
   }
 }
 
+main {
+  border-bottom: 0.5rem solid var(--accent);
+}
+
 #themeSwitcher {
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 16px;
+  right: 16px;
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 50%;
   border: 3px solid var(--accent);
   background-color: var(--darkBackground);
+  padding: 0;
   cursor: pointer;
 }
 html.dark-theme #themeSwitcher {
@@ -176,25 +181,11 @@ html.dark-theme #themeSwitcher {
   top: 0;
   right: 0;
 }
-@media only screen and (min-width: 1200px) {
-  .links {
-    position: fixed;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .links .links-wrap {
-    position: absolute;
-  }
-}
 .links nav {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
   margin: 2rem 2rem 0;
-}
-@media only screen and (min-width: 1200px) {
-  .links nav {
-    transform: translateX(-65%) translateY(220px) rotate(-90deg);
-    margin: 0;
-  }
 }
 .links nav a {
   text-transform: uppercase;
@@ -203,6 +194,21 @@ html.dark-theme #themeSwitcher {
 }
 .links nav a:not(:last-child) {
   margin-right: 2rem;
+}
+.links nav a:hover {
+  text-decoration: none;
+}
+@media only screen and (min-width: 800px) {
+  .links {
+    position: fixed;
+  }
+  .links .links-wrap {
+    position: absolute;
+  }
+  .links nav {
+    grid-template-columns: repeat(4, 1fr);
+    transform: translateX(-65%) translateY(220px) rotate(-90deg);
+  }
 }
 
 .experience h4 {
