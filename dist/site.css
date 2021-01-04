@@ -173,8 +173,16 @@ html.dark-theme #themeSwitcher {
   outline: none;
 }
 
+.brand {
+  text-align: center;
+}
 .brand svg {
   margin: 2rem 2rem 0;
+}
+@media only screen and (min-width: 800px) {
+  .brand {
+    text-align: left;
+  }
 }
 
 .links {
@@ -183,8 +191,9 @@ html.dark-theme #themeSwitcher {
 }
 .links nav {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
+  text-align: center;
   margin: 2rem 2rem 0;
 }
 .links nav a {
@@ -207,7 +216,7 @@ html.dark-theme #themeSwitcher {
   }
   .links nav {
     grid-template-columns: repeat(4, 1fr);
-    transform: translateX(-65%) translateY(220px) rotate(-90deg);
+    transform: translateX(-67%) translateY(220px) rotate(-90deg);
   }
 }
 
