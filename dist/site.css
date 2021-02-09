@@ -21,6 +21,8 @@ body {
   background: var(--background);
   overflow-x: hidden;
   transition: background 0.2s ease;
+  border-top: 0.5rem solid var(--accent);
+  border-bottom: 0.5rem solid var(--accent);
 }
 
 h1 {
@@ -146,12 +148,8 @@ section {
 }
 @media only screen and (max-width: 1200px) {
   section {
-    margin-top: 5vh;
+    margin-top: 2.5vh;
   }
-}
-
-main {
-  border-bottom: 0.5rem solid var(--accent);
 }
 
 #themeSwitcher {
@@ -190,19 +188,17 @@ html.dark-theme #themeSwitcher {
   right: 0;
 }
 .links nav {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
+  display: flex;
+  justify-content: center;
   text-align: center;
   margin: 2rem 2rem 0;
 }
 .links nav a {
   text-transform: uppercase;
   font-weight: 100;
-  font-size: 18px;
 }
 .links nav a:not(:last-child) {
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 .links nav a:hover {
   text-decoration: none;
