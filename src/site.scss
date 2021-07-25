@@ -223,3 +223,45 @@ section {
     margin: 0;
   }
 }
+
+.contact-grid {
+  --columns: 2;
+  display: grid;
+  align-content: center;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: 2rem;
+}
+
+.contact-form form {
+  label {
+    display: block;
+    margin-bottom: .5rem;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 1rem .5rem;
+    border-radius: 3px;
+    border: 2px solid var(--darkBackground);
+
+
+    &:focus {
+      outline: 0;
+      border: 2px solid var(--accent);
+    }
+  }
+  .input-group {
+    margin-bottom: 1rem;
+  }
+  button {
+    padding: .75rem 1rem;
+    color: var(--lightBackground);
+    background-color: var(--accent);
+    border-radius: 3px;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lighten(#673ab7, 10);
+    }
+  }
+}

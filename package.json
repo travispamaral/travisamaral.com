@@ -2,7 +2,6 @@
   "name": "travispamaral.com",
   "description": "Website",
   "scripts": {
-    "styles": "sass src/site.scss dist/site.css --watch",
-    "styles:2021": "sass src/2021.scss dist/2021.css --watch"
+    "styles": "sass src/site.scss dist/site.css --watch"
   }
 }
