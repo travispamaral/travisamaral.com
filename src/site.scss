@@ -239,10 +239,10 @@ section {
   }
   input, textarea {
     width: 100%;
-    padding: 1rem .5rem;
+    padding: .75rem .5rem;
     border-radius: 3px;
     border: 2px solid var(--darkBackground);
-
+    line-height: 1;
 
     &:focus {
       outline: 0;

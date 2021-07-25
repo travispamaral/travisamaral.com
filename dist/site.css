@@ -246,9 +246,10 @@ html.dark-theme #themeSwitcher {
 }
 .contact-form form input, .contact-form form textarea {
   width: 100%;
-  padding: 1rem 0.5rem;
+  padding: 0.75rem 0.5rem;
   border-radius: 3px;
   border: 2px solid var(--darkBackground);
+  line-height: 1;
 }
 .contact-form form input:focus, .contact-form form textarea:focus {
   outline: 0;
