@@ -1,27 +1,55 @@
-import React, { Fragment } from "react";
-import { Box } from "./";
+import React from "react";
+import { Box, BoxSection } from "./";
 
-const Section = ({ title, items }: { title: string; items: string[] }) => (
-  <div className="grid grid-cols-3 p-1 gap-1 text-xs">
-    <div className="h-full bg-blue-300 text-blue-700 p-1 font-bold">
-      {title}
-    </div>
-    <div className="col-span-2 bg-blue-100 p-1">
-      {items.map((item, idx) => (
-        <span key={idx}>
-          {idx > 0 && ", "}
-          {item}
-        </span>
-      ))}
-    </div>
-  </div>
-);
+const generalItems = [
+  "Technology",
+  "Web Development",
+  "Music",
+  "Movies",
+  "Home DIY Work",
+  "Woodworking",
+  "Light gaming",
+  "Playing drums",
+  "Beer",
+  "Camping",
+  "Cars",
+];
+
+const musicItems = [
+  "Twenty One Pilots",
+  "Blink 182",
+  "Mumford and Sons",
+  "Biggie",
+  "John Mayer",
+  "Eminem",
+  "New Found Glory",
+  "Taking Back Sunday",
+  "Thrice",
+  "Paramore",
+  "Tupac",
+  "so many more",
+];
+
+const movieItems = [
+  "Interstellar",
+  "Inception",
+  "Dark Knight franchise",
+  "Fast and Furious 1",
+  "Blade Runner",
+  "Anything dystopian future",
+  "Community",
+  "Scrubs",
+  "How I Met Your Mother",
+];
 
 export function Interests() {
   return (
-    <Box title="Interests">
-      <Section title="General" items={["music", "cars", "beer", "tech"]} />
-      <Section title="Music" items={["music", "cars", "beer", "tech"]} />
-    </Box>
+    <div className="mt-4">
+      <Box title="Interests">
+        <BoxSection title="General" items={generalItems} />
+        <BoxSection title="Music" items={musicItems} />
+        <BoxSection title={`Movies & TV`} items={movieItems} />
+      </Box>
+    </div>
   );
 }

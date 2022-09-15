@@ -37,7 +37,7 @@ export function Header() {
                 value="myspace"
                 id="myspace"
                 name="myspace"
-                checked
+                defaultChecked
               />
             </label>
             <div className="flex space-x-2 items-end">
