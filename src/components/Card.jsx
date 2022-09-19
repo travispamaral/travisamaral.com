@@ -92,3 +92,19 @@ Card.Eyebrow = function CardEyebrow({
     </Component>
   )
 }
+
+Card.Subhead = function CardSubhead({
+  as: Component = 'p',
+  className,
+  children,
+  ...props
+}) {
+  return (
+    <Component
+      className="relative z-10 order-first mb-3 flex items-center text-sm text-violet-700"
+      {...props}
+    >
+      {children}
+    </Component>
+  )
+}
