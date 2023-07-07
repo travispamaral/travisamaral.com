@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Image from 'next/future/image'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -8,74 +9,13 @@ import { Container } from '@/components/Container'
 import { BlurImage } from '@/components/BlurImage'
 import {
   TwitterIcon,
-  InstagramIcon,
   GitHubIcon,
   CodepenIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons'
-import logoShopify from '@/images/logos/shopify.svg'
-import logoKong from '@/images/logos/kong.svg'
-import logoZooka from '@/images/logos/zooka.svg'
-import logoNawa from '@/images/logos/nawa.svg'
-import logoFreelance from '@/images/logos/freelance.svg'
+import { BriefcaseIcon, MailIcon } from '@/components/icons'
 
-const description = `I'm UI/UX developer based in beautiful Monterey, California. I currently work at Shopify, where I help build tools that help developers build Custom Storefronts. I am a father, husband, drummer and tech enthusiast.`
-
-function MailIcon(props) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path
-        d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-      />
-      <path
-        d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
-      />
-    </svg>
-  )
-}
-
-function BriefcaseIcon(props) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      aria-hidden="true"
-      {...props}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-      />
-    </svg>
-  )
-}
-
-function ArrowDownIcon(props) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
+import { aboutDescription, socialUrls, workExperience } from '@/lib/content'
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
@@ -86,99 +26,92 @@ function SocialLink({ icon: Icon, ...props }) {
 }
 
 function Contact() {
+  const [result, setResult] = useState('')
+  const [message, setMessage] = useState('')
+
+  const onSubmit = async (event) => {
+    event.preventDefault()
+    const formData = new FormData(event.target)
+
+    formData.append('access_key', process.env.NEXT_PUBLIC_FORM_ACCESS_KEY)
+
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    }).then((res) => res.json())
+
+    if (res.success) {
+      setResult('success')
+      setMessage(res.message)
+    } else {
+      console.log('Error', res)
+      setResult('error')
+      setMessage(res.message)
+    }
+  }
+
   return (
-    <form
-      name="contact"
-      method="POST"
-      data-netlify-recaptcha="true"
-      data-netlify="true"
-      action="/thank-you"
-      className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-    >
-      <input type="hidden" name="form-name" value="contact" />
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Send a message</span>
-      </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        {`Want to work together? Or just want to say hi? Shoot me a message, I'd be happy to hear from you!`}
-      </p>
-      <div className="mt-6 grid gap-3">
-        <input
-          type="text"
-          placeholder="Name"
-          aria-label="Name"
-          required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-violet-400 sm:text-sm"
-        />
-        <input
-          type="email"
-          placeholder="Email address"
-          aria-label="Email address"
-          required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-violet-400 sm:text-sm"
-        />
-        <textarea
-          placeholder="Message"
-          aria-label="Message"
-          required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-violet-400 sm:text-sm"
-        />
-        <div data-netlify-recaptcha="true"></div>
-        <Button type="submit">Say hello!</Button>
-      </div>
-    </form>
+    <div className="flex h-full rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+      {console.log(result.length)}
+      {result.length > 0 ? (
+        <p>{message}</p>
+      ) : (
+        <form
+          onSubmit={onSubmit}
+          className="flex h-full flex-col justify-between"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value={process.env.NEXT_PUBLIC_FORM_ACCESS_KEY}
+          />
+          <input type="hidden" name="from_name" value="Website Submission" />
+          <input
+            type="hidden"
+            name="subject"
+            value="New Submission from travisamaral.com"
+          />
+          <input type="checkbox" name="botcheck" className="hidden" />
+          <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            <MailIcon className="h-6 w-6 flex-none" />
+            <span className="ml-3">Send a message</span>
+          </h2>
+          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+            {`Want to work together? Or just want to say hi? Shoot me a message, I'd be happy to hear from you!`}
+          </p>
+          <div className="mt-6 grid gap-3">
+            <input
+              required
+              type="text"
+              placeholder="Name"
+              aria-label="Name"
+              name="name"
+              className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-violet-400 sm:text-sm"
+            />
+            <input
+              required
+              type="email"
+              placeholder="Email address"
+              aria-label="Email address"
+              name="email"
+              className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-violet-400 sm:text-sm"
+            />
+            <textarea
+              required
+              placeholder="Message"
+              aria-label="Message"
+              name="message"
+              className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-violet-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-violet-400 sm:text-sm"
+            />
+            <Button type="submit">Say hello!</Button>
+          </div>
+        </form>
+      )}
+    </div>
   )
 }
 
 function Resume() {
-  const resume = [
-    {
-      company: 'Shopify',
-      title: 'Sr Frontend Developer',
-      logo: logoShopify,
-      href: 'https://shopify.com',
-      start: '2020',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear(),
-      },
-    },
-    {
-      company: 'Freelancer',
-      title: 'Web Developer',
-      logo: logoFreelance,
-      start: '2010',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear(),
-      },
-    },
-    {
-      company: 'Kong',
-      title: 'Sr Software Developer',
-      logo: logoKong,
-      href: 'https://konghq.com',
-      start: '2017',
-      end: '2020',
-    },
-    {
-      company: 'Zooka Crative',
-      title: 'Lead Developer & Operations',
-      logo: logoZooka,
-      href: 'https://zookacreative.com',
-      start: '2013',
-      end: '2017',
-    },
-    {
-      company: 'Nawa Media',
-      title: 'Web Developer',
-      logo: logoNawa,
-      start: '2012',
-      end: '2013',
-    },
-  ]
-
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -186,10 +119,15 @@ function Resume() {
         <span className="ml-3">Work History</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
-          <li key={roleIndex} className="flex gap-4">
+        {workExperience.map((role, idx) => (
+          <li key={idx} className="flex gap-4">
             <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+              <Image
+                src={role.logo}
+                alt={`${role.company} logo`}
+                className="h-7 w-7"
+                unoptimized
+              />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Company</dt>
@@ -197,7 +135,7 @@ function Resume() {
                 {role.href ? (
                   <a
                     href={role.href}
-                    className="underline hover:text-violet-800 hover:no-underline"
+                    className="underline hover:text-violet-600 hover:no-underline"
                   >
                     {role.company}
                   </a>
@@ -274,7 +212,7 @@ export default function Home({ instagramImages }) {
     <>
       <Head>
         <title>Travis Amaral - Frontend / UX Developer</title>
-        <meta name="description" content={`I'm Travis. ${description}`} />
+        <meta name="description" content={`I'm Travis. ${aboutDescription}`} />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
@@ -282,26 +220,26 @@ export default function Home({ instagramImages }) {
             Hi! Im Travis.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            {description}
+            {aboutDescription}
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
-              href="https://twitter.com/travispamaral"
+              href={socialUrls.twitter}
               aria-label="Follow on Twitter"
               icon={TwitterIcon}
             />
             <SocialLink
-              href="https://codepen.io/travispamaral"
+              href={socialUrls.codepen}
               aria-label="Follow on Twitter"
               icon={CodepenIcon}
             />
             <SocialLink
-              href="https://github.com/travispamaral"
+              href={socialUrls.gitHub}
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
             />
             <SocialLink
-              href="https://www.linkedin.com/in/travis-amaral-42383222/"
+              href={socialUrls.linkedIn}
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
@@ -310,7 +248,7 @@ export default function Home({ instagramImages }) {
       </Container>
       <Photos images={instagramImages} />
       <Container className="mt-24 md:mt-28">
-        <div className="grid grid-cols-1 gap-x-6 gap-y-20 lg:max-w-none lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-y-10 sm:gap-x-6 lg:max-w-none lg:grid-cols-3">
           <div className="col-span-2 flex flex-col gap-16">
             <Resume />
           </div>

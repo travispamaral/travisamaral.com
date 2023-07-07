@@ -6,14 +6,14 @@ const transporter = nodemailer.createTransport({
     user: process.env.GMAIL,
     pass: process.env.GMAIL_PASSWORD,
   },
-  secure: true,
 })
 
 export default function handler(req, res) {
+  console.log(process.env.GMAIL, process.env.GMAIL_PASSWORD)
   const mailData = {
-    from: 'contact@travisamaral.com',
+    from: 'travispamaral@gmail.com',
     to: process.env.GMAIL,
-    subject: `Message From ${req.body.name}`,
+    subject: `Message From website - ${req.body.name}`,
     text: req.body.message,
     html: (
       <div>

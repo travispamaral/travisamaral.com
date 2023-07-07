@@ -3,47 +3,64 @@ import Head from 'next/head'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import logoCoverdash from '@/images/logos/coverdash.svg'
+import logoShopify from '@/images/logos/shopify.svg'
+import logoKong from '@/images/logos/kong.svg'
+import logoZooka from '@/images/logos/zooka.svg'
+import logoAsb from '@/images/logos/asb.svg'
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'Alvarado Street Brewery',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+      'Shopify maintence and theme updates including some custom liquid development',
+    link: { href: 'https://asb.beer', label: 'asb.beer' },
+    logo: logoAsb,
   },
   {
-    name: 'Animaginary',
+    name: 'Shopify Hydrogen Channel',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
+      'A Shopify channel that allows you to connect manage and deploy your Hydrogen custom storefront',
+    link: {
+      href: 'https://hydrogen.shopify.dev/',
+      label: 'hydrogen.shopify.dev',
+    },
+    logo: logoShopify,
   },
   {
-    name: 'HelioStream',
-    description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
+    name: 'Coverdash',
+    description: 'Website and user dashboard built with nextjs and supabase.',
+    link: { href: 'https://coverdash.com', label: 'coverdash.com' },
+    logo: logoCoverdash,
   },
   {
-    name: 'cosmOS',
+    name: 'Shopify Developer Docs',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
+      'Implement custom landing pages throughout the newly designed dev docs.',
+    link: { href: 'https://shopify.dev', label: 'shopify.dev' },
+    logo: logoShopify,
   },
   {
-    name: 'OpenShuttle',
+    name: 'Kong Konnect Platform',
+    description: `Cloud based service for Kong's api management software.`,
+    link: {
+      href: 'https://konghq.com/products/cloud-api-platform',
+      label: 'konghq.com',
+    },
+    logo: logoKong,
+  },
+  {
+    name: 'KongHQ.com Website',
     description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
+      'Built a new custom marketing site on Wordpress in under 3 months. In addition I continually work on internal Vue & React applications.',
+    link: { href: 'https://konghq.com', label: 'konghq.com' },
+    logo: logoKong,
+  },
+  {
+    name: 'Zooka Creative Website',
+    description: 'Redesign for creative agency Zooka Creative in San Jose, Ca.',
+    link: { href: 'https://zookacreative.com', label: 'zookacreative.com' },
+    logo: logoZooka,
   },
 ]
 
@@ -62,15 +79,15 @@ export default function Projects() {
   return (
     <>
       <Head>
-        <title>Projects - Spencer Sharp</title>
+        <title>Projects - Travis Amaral</title>
         <meta
           name="description"
-          content="Things I’ve made trying to put my dent in the universe."
+          content="Things I’ve made throughout my career."
         />
       </Head>
       <SimpleLayout
-        title="Things I’ve made trying to put my dent in the universe."
-        intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+        title="Things I’ve made throughout my career."
+        intro="I’ve worked on a lot of different things throughout my career. From building custom WordPress sites for clients to Shopify stores to developing a an interface for a tablet used in a conference booth. I love getting involved in new things and helping companies find creative solutions to their needs. Recently I've been mostly focused on building applications with NextJS or JAM Stack projects."
       >
         <ul
           role="list"
@@ -82,7 +99,7 @@ export default function Projects() {
                 <Image
                   src={project.logo}
                   alt=""
-                  className="h-8 w-8"
+                  className="h-8 w-8 rounded-full"
                   unoptimized
                 />
               </div>

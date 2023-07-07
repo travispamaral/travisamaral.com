@@ -6,7 +6,26 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import avatarImage from '@/images/avatar.jpg'
-import { Fragment, useEffect, useRef } from 'react'
+import { Fragment } from 'react'
+
+const navigation = [
+  {
+    label: 'Home',
+    url: '/',
+  },
+  {
+    label: 'About',
+    url: '/about',
+  },
+  {
+    label: 'Work',
+    url: '/work',
+  },
+  {
+    label: 'Projects',
+    url: '/projects',
+  },
+]
 
 function CloseIcon(props) {
   return (
@@ -109,23 +128,21 @@ function MobileNavigation(props) {
         >
           <Popover.Panel
             focus
-            className="fixed inset-2 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800"
+            className="fixed inset-x-2 top-2 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800"
           >
-            <div className="flex flex-row-reverse items-center justify-between">
-              <Popover.Button aria-label="Close menu" className="-m-1 p-1">
-                <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
-              </Popover.Button>
-              <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                Navigation
-              </h2>
-            </div>
-            <nav className="mt-6">
+            <Popover.Button
+              aria-label="Close menu"
+              className="absolute right-4 top-4 p-1"
+            >
+              <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
+            </Popover.Button>
+            <nav>
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-                <MobileNavItem href="/about">About</MobileNavItem>
-                <MobileNavItem href="/work">Work</MobileNavItem>
-                <MobileNavItem href="/projects">Projects</MobileNavItem>
-                <MobileNavItem href="/speaking">Speaking</MobileNavItem>
-                <MobileNavItem href="/uses">Uses</MobileNavItem>
+                {navigation.map((item) => (
+                  <MobileNavItem key={item.label} href={item.url}>
+                    {item.label}
+                  </MobileNavItem>
+                ))}
               </ul>
             </nav>
           </Popover.Panel>
@@ -162,11 +179,11 @@ function DesktopNavigation(props) {
   return (
     <nav {...props}>
       <ul className="flex bg-none px-3 text-sm font-medium text-zinc-800 dark:text-zinc-200 dark:ring-white/10">
-        <NavItem href="/about">About</NavItem>
-        <NavItem href="/work">Work</NavItem>
-        <NavItem href="/projects">Projects</NavItem>
-        <NavItem href="/speaking">Speaking</NavItem>
-        <NavItem href="/uses">Uses</NavItem>
+        {navigation.map((item) => (
+          <NavItem key={item.label} href={item.url}>
+            {item.label}
+          </NavItem>
+        ))}
       </ul>
     </nav>
   )
@@ -205,12 +222,6 @@ function ModeToggle() {
       <MoonIcon className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-violet-600/10 [@media_not_(prefers-color-scheme:dark)]:stroke-violet-700" />
     </button>
   )
-}
-
-function clamp(number, a, b) {
-  let min = Math.min(a, b)
-  let max = Math.max(a, b)
-  return Math.min(Math.max(number, min), max)
 }
 
 function AvatarContainer({ className, ...props }) {
