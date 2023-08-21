@@ -52,7 +52,6 @@ function Contact() {
 
   return (
     <div className="flex h-full rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      {console.log(result.length)}
       {result.length > 0 ? (
         <p>{message}</p>
       ) : (
