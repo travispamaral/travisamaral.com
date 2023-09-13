@@ -71,14 +71,14 @@ export default function About() {
                 I had no real idea how to get into the industry so I would just
                 make sites for free or very cheap. I&rsquo;d make sites for my
                 friends, or their friends, local businesses, etc. Eventually a
-                friend saw what I was doing and had an opening at her
-                fiance&rsquo;s small e-commerce agency.
+                friend saw what I was doing and referred me to her company,
+                a small e-commerce agency.
               </p>
               <p>
                 I&rsquo;ve been lucky to have worked on a variety of different
-                projects. I build Shopify sites for high end fashion brands,
+                projects. I've built Shopify sites for high end fashion brands,
                 brochure sites for consumer goods brands, made sweepstakes sites
-                for food companies and even made a UI for an barcode scanner
+                for food companies and even made a UI for a barcode scanner
                 like you see on the walls of Target.
               </p>
               <p>
