@@ -192,7 +192,7 @@ function Photos({ images }) {
             )}
           >
             <BlurImage
-              src={image?.mediaUrl}
+              src={image.mediaUrl}
               alt={image.caption}
               sizes="(min-width: 640px) 18rem, 11rem"
               className="absolute inset-0 h-full w-full object-cover"
