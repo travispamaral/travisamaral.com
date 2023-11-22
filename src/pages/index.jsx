@@ -191,7 +191,7 @@ function Photos({ images }) {
               rotations[imageIndex % rotations.length]
             )}
           >
-            <BlurImage
+            <Image
               src={image.mediaUrl}
               alt={image.caption}
               sizes="(min-width: 640px) 18rem, 11rem"
