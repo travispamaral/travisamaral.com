@@ -261,7 +261,7 @@ export default function Home({ instagramImages }) {
 }
 
 export async function getStaticProps() {
-  const data = await fetch('https://feeds.behold.so/uhASmrwTD0cchEmdkTnz')
+  const data = await fetch('https://feeds.behold.so/1qBzbGjRZrQ3t8TsH44Q')
   const images = await data.json()
 
   return {
