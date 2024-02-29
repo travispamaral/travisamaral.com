@@ -266,7 +266,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      instagramImages: images,
+      instagramImages: images.posts,
     },
   }
 }
