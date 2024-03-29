@@ -192,7 +192,7 @@ function Photos({ images }) {
             )}
           >
             <Image
-              src={image.mediaUrl}
+              src={image.media_url}
               alt={image.caption}
               sizes="(min-width: 640px) 18rem, 11rem"
               className="absolute inset-0 h-full w-full object-cover"
@@ -261,12 +261,15 @@ export default function Home({ instagramImages }) {
 }
 
 export async function getStaticProps() {
-  const data = await fetch('https://feeds.behold.so/1qBzbGjRZrQ3t8TsH44Q')
-  const images = await data.json()
+  const response = await fetch(
+    `https://graph.instagram.com/v12.0/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${process.env.NEXT_IG_ACCESS_TOKEN}`
+  )
+  const { data } = await response.json()
+  const images = data.filter((post) => post.media_type === 'IMAGE')
 
   return {
     props: {
-      instagramImages: images.posts,
+      instagramImages: images.slice(0, 6),
     },
   }
 }
