@@ -16,6 +16,12 @@ import {
 import { BriefcaseIcon, MailIcon } from '@/components/icons'
 
 import { aboutDescription, socialUrls, workExperience } from '@/lib/content'
+import campingImage from '@/images/camping.jpg'
+import deskImage from '@/images/desk.jpg'
+import disneyImage from '@/images/disney.jpg'
+import meGryffImage from '@/images/me_and_gryff.jpg'
+import meJessImage from '@/images/me_and_jess.jpg'
+import trailerImage from '@/images/trailer.jpg'
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
@@ -177,13 +183,46 @@ function Resume() {
   )
 }
 
-function Photos({ images }) {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+function Photos() {
+  const rotations = [
+    'rotate-2',
+    '-rotate-2',
+    'rotate-2',
+    'rotate-2',
+    '-rotate-2',
+  ]
+  const images = [
+    {
+      img: campingImage,
+      alt: 'Camping in the woods',
+    },
+    {
+      img: deskImage,
+      alt: 'Desk setup 2024',
+    },
+    {
+      img: disneyImage,
+      alt: 'Wren and I at Disneyland about to meet Elsa',
+    },
+    {
+      img: meGryffImage,
+      alt: 'Gryff and I camping in Avila Beach',
+    },
+    {
+      img: meJessImage,
+      alt: 'Jess and I',
+    },
+    {
+      img: trailerImage,
+      alt: 'Prepped and ready for camping',
+    },
+  ]
+  const randomImages = images.sort(() => Math.random() - 0.5)
 
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {images.map((image, imageIndex) => (
+        {randomImages.map((image, imageIndex) => (
           <div
             key={image.id}
             className={clsx(
@@ -192,8 +231,8 @@ function Photos({ images }) {
             )}
           >
             <Image
-              src={image.media_url}
-              alt={image.caption}
+              src={image.img}
+              alt={image.alt}
               sizes="(min-width: 640px) 18rem, 11rem"
               className="absolute inset-0 h-full w-full object-cover"
               width={800}
@@ -206,7 +245,7 @@ function Photos({ images }) {
   )
 }
 
-export default function Home({ instagramImages }) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -245,7 +284,7 @@ export default function Home({ instagramImages }) {
           </div>
         </div>
       </Container>
-      <Photos images={instagramImages} />
+      <Photos />
       <Container className="mt-24 md:mt-28">
         <div className="grid grid-cols-1 gap-y-10 sm:gap-x-6 lg:max-w-none lg:grid-cols-3">
           <div className="col-span-2 flex flex-col gap-16">
@@ -258,18 +297,4 @@ export default function Home({ instagramImages }) {
       </Container>
     </>
   )
-}
-
-export async function getStaticProps() {
-  const response = await fetch(
-    `https://graph.instagram.com/v12.0/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${process.env.NEXT_IG_ACCESS_TOKEN}`
-  )
-  const { data } = await response.json()
-  const images = data.filter((post) => post.media_type === 'IMAGE')
-
-  return {
-    props: {
-      instagramImages: images.slice(0, 6),
-    },
-  }
 }
